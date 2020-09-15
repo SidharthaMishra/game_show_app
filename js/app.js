@@ -22,6 +22,13 @@ document.addEventListener(
         const startOverlay = document.querySelector("#overlay");
         const startGameBtn = document.querySelector(".btn__reset");
 
+        //Functions
+        function getRandomPhraseAsArray(arr) {
+            const randIndex = Math.floor(Math.random()) * arr.length; //random number between 0 and 9
+            const randPhrase = arr[randIndex].split("");
+            return randPhrase;
+        }
+
         //Event Listeners
         startGameBtn.addEventListener("click", function() {
             startOverlay.style.display = "none";
