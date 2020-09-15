@@ -45,6 +45,8 @@ document.addEventListener(
         //Event Listeners
         startGameBtn.addEventListener("click", function() {
             startOverlay.style.display = "none";
+            let randPhrase = getRandomPhraseAsArray(phrases);
+            addPhraseToDisplay(randPhrase);
         });
 
 
