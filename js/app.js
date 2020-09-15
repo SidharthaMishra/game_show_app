@@ -24,7 +24,7 @@ document.addEventListener(
 
         //Functions
         function getRandomPhraseAsArray(arr) {
-            const randIndex = Math.floor(Math.random()) * arr.length; //random number between 0 and 9
+            const randIndex = Math.floor(Math.random() * arr.length); //random number between 0 and 9
             const randPhrase = arr[randIndex].split("");
             return randPhrase;
         }
@@ -32,6 +32,7 @@ document.addEventListener(
         //Event Listeners
         startGameBtn.addEventListener("click", function() {
             startOverlay.style.display = "none";
+            addPhraseToDisplay(getRandomPhraseAsArray(phrases));
         });
 
 
