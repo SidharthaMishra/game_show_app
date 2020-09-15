@@ -29,10 +29,22 @@ document.addEventListener(
             return randPhrase;
         }
 
+        function addPhraseToDisplay(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                let li = document.createElement("li");
+                li.textContent = arr[i];
+                if (arr[i] !== " ") {
+                    li.className = "letter";
+                } else {
+                    li.className = "space";
+                }
+                phrase.appendChild(li);
+            }
+        }
+
         //Event Listeners
         startGameBtn.addEventListener("click", function() {
             startOverlay.style.display = "none";
-            addPhraseToDisplay(getRandomPhraseAsArray(phrases));
         });
 
 
