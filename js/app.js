@@ -91,18 +91,22 @@ document.addEventListener(
 
         keyboard.addEventListener("click", function(event) {
             const chosenButton = event.target;
-            chosenButton.className = "chosen";
-            chosenButton.disabled = "true";
-            const letterFound = checkLetter(chosenButton);
+            console.log(chosenButton.tagName);
+            if (chosenButton.tagName === "BUTTON") {
+                chosenButton.className = "chosen";
+                chosenButton.disabled = "true";
 
-            if (letterFound === null) {
-                missed++;
-                if (missed <= 5) {
-                    scoreBoard.children[0].removeChild(
-                        scoreBoard.children[0].children[0]
-                    );
+                const letterFound = checkLetter(chosenButton);
+
+                if (letterFound === null) {
+                    missed++;
+                    if (missed <= 5) {
+                        scoreBoard.children[0].removeChild(
+                            scoreBoard.children[0].children[0]
+                        );
+                    }
                 }
+                checkWin();
             }
-            checkWin();
         });
     });
