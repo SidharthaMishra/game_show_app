@@ -85,13 +85,11 @@ document.addEventListener(
             startOverlay.style.display = "none";
 
             let randPhrase = getRandomPhraseAsArray(phrases);
-            console.log(randPhrase);
             addPhraseToDisplay(randPhrase);
         });
 
         keyboard.addEventListener("click", function(event) {
             const chosenButton = event.target;
-            console.log(chosenButton.tagName);
             if (chosenButton.tagName === "BUTTON") {
                 chosenButton.className = "chosen";
                 chosenButton.disabled = "true";
