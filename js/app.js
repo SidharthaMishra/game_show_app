@@ -6,6 +6,11 @@ document.addEventListener(
         const scoreBoard = document.querySelector("#scoreboard");
         const phrase = document.querySelector("#phrase");
         let missed = 0;
+        const winOverlay = document.querySelector(".win");
+        winOverlay.style.display = "none";
+        const lostOverlay = document.querySelector(".lose");
+        lostOverlay.style.display = "none";
+
         const phrases = [
             //phrases obtained from: https://randomwordgenerator.com/phrase.php
             "When the Rubber hits the Road",
@@ -19,7 +24,7 @@ document.addEventListener(
             "Lickety Split",
             "Know the Ropes"
         ];
-        const startOverlay = document.querySelector("#overlay");
+        const startOverlay = document.querySelector(".start");
         const startGameBtn = document.querySelector(".btn__reset");
 
         //Functions
@@ -64,10 +69,23 @@ document.addEventListener(
 
         }
 
+        function checkWin() {
+            const numShow = document.querySelectorAll(".show").length;
+            const numLetters = document.querySelectorAll(".letter").length;
+            if (numShow === numLetters) {
+                winOverlay.style.display = "";
+            } else if (missed >= 5) {
+                lostOverlay.style.display = "";
+            }
+        }
         //Event Listeners
         startGameBtn.addEventListener("click", function() {
+            winOverlay.style.display = "none";
+            lostOverlay.style.display = "none";
             startOverlay.style.display = "none";
+
             let randPhrase = getRandomPhraseAsArray(phrases);
+            console.log(randPhrase);
             addPhraseToDisplay(randPhrase);
         });
 
@@ -85,8 +103,6 @@ document.addEventListener(
                     );
                 }
             }
-
+            checkWin();
         });
-
-
     });
