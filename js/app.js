@@ -42,11 +42,50 @@ document.addEventListener(
             }
         }
 
+        function checkLetter(btn) {
+            let matchedLetter;
+            let matchFound = false;
+            const letters = document.querySelectorAll(".letter");
+            const btnText = btn.textContent;
+
+            for (let i = 0; i < letters.length; i++) {
+
+                if (btnText === letters[i].textContent.toLowerCase()) {
+                    letters[i].classList.add("show");
+                    matchedLetter = letters[i];
+                    matchFound = true;
+                }
+            }
+            if (matchFound === true) {
+                return matchedLetter;
+            } else {
+                return null;
+            }
+
+        }
+
         //Event Listeners
         startGameBtn.addEventListener("click", function() {
             startOverlay.style.display = "none";
             let randPhrase = getRandomPhraseAsArray(phrases);
             addPhraseToDisplay(randPhrase);
+        });
+
+        keyboard.addEventListener("click", function(event) {
+            const chosenButton = event.target;
+            chosenButton.className = "chosen";
+            chosenButton.disabled = "true";
+            const letterFound = checkLetter(chosenButton);
+
+            if (letterFound === null) {
+                missed++;
+                if (missed <= 5) {
+                    scoreBoard.children[0].removeChild(
+                        scoreBoard.children[0].children[0]
+                    );
+                }
+            }
+
         });
 
 
