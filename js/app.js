@@ -73,9 +73,14 @@ document.addEventListener(
             const numShow = document.querySelectorAll(".show").length;
             const numLetters = document.querySelectorAll(".letter").length;
             if (numShow === numLetters) {
-                winOverlay.style.display = "";
+                setInterval(function() {
+                    winOverlay.style.display = "";
+                }, 600);
+
             } else if (missed >= 5) {
-                lostOverlay.style.display = "";
+                setInterval(function() {
+                    lostOverlay.style.display = "";
+                }, 600);
             }
         }
         //Event Listeners
