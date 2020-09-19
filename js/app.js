@@ -51,7 +51,12 @@ document.addEventListener(
         }
 
         function resetLives() {
-            for (let i = 0; i < 5; i++) {
+            //Calculate how many lives to add based on how many were left
+            const leftOverLives = document.querySelectorAll(".tries").length;
+            const len = 5 - leftOverLives;
+
+            //Add Lives
+            for (let i = 0; i < len; i++) {
                 let life = document.createElement("li");
                 let heart = document.createElement("img");
                 heart.src = "images/liveHeart.png";
