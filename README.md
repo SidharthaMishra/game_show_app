@@ -1,2 +1,2 @@
 # game_show_app
- Game Show Application Project
+ Wheel of Success Game Show Application Project
