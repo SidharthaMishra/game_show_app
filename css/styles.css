@@ -59,6 +59,11 @@ button {
     transition: var(--transition);
 }
 
+button:hover,
+a:hover {
+    cursor: pointer;
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
