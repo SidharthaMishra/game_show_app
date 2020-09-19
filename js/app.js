@@ -31,7 +31,7 @@ document.addEventListener(
 
         //Functions
         function getRandomPhraseAsArray(arr) {
-            const randIndex = Math.floor(Math.random() * arr.length); //random number between 0 and 9
+            const randIndex = Math.floor(Math.random() * Math.floor(arr.length)); //random number between 0 and 9
             const randPhrase = arr[randIndex].split("");
             return randPhrase;
         }
